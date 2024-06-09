@@ -1,0 +1,4 @@
+File Name	Processing Time (Hours: Minutes: Seconds)	Memory (peak size of memory blocks traced in MB)	Starting File Size (MB)	Ending File Size (MB)	Number of sequences cleaned
+Ursus_maritimus.UrsMar_1.0.dna.nonchromosomal.fa	9:25:22.534696	8.08	2341.93	2341.39	23819
+Ursus_thibetanus_thibetanus.ASM966005v1.dna.nonchromosomal.fa	9:40:17.314379	8.31	2415.51	2414.78	24967
+Ursus_americanus.ASM334442v1.dna.nonchromosomal.fa	10:30:20.601305	34.16	2642.08	2638.84	111495
