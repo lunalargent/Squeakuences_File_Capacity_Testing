@@ -18,6 +18,9 @@ for root, dirs, files in os.walk(my_folder):
             df = df._append(temp_df, ignore_index=True)
 
 # Export dataframe to Excel file
-writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
-df.to_excel(writer, index=False, sheet_name='Sheet1')
-writer._save()
+# writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
+# df.to_excel(writer, index=False, sheet_name='Sheet1')
+# writer._save()
+
+#Create a CSV file
+df.to_csv('output.csv')
