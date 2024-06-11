@@ -1,4 +1,4 @@
-,File_Name,Processing_Time,Memory,Starting_File_Size,Ending_File_Size,Number_of_sequences_cleaned
+,File_Name,Processing_Time,Memory (MB),Starting File Size (MB),Ending File Size (MB),Number of sequences cleaned
 0,GCA_032361265.1_ASM3236126v1_genomic.fna,10:18:20.147922,498.33,942.13,894.86,1575647
 1,GCF_958450345.1_idCalVici1.1_genomic.fna,2:26:44.959627,0.72,715.37,715.36,117
 2,protein.faa,0:05:35.924490,10.1,26.74,26.17,34173
