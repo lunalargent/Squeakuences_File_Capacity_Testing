@@ -3,27 +3,49 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 import sys
 import datetime
+import numpy as np
+from scipy import stats
 
 #read in csv file and store as a dataframe
-file = pd.read_csv('clean_output.csv') 
-#print(file.columns)
-testtime = file['Processing_Time'][0]
-float(testtime)
+file = pd.read_csv('clean_output.csv')
+
+file["Runtime (in hours)"] = np.nan
+
+print(file)
+
+for index in file.index:
+    temp_ind = file["Processing_Time"][index]
+    #print(temp_ind)
+    timelist = temp_ind.split(':')
+    hours = float(timelist[0]) + float(timelist[1])/60 + float(timelist[2])/3600
+    #print(hours)
+    #file["Runtime"][index] = hours
+    file.loc[index,"Runtime (in hours)"] = hours
+#print(file)
+
+#float(testtime)
 #print(type(datetime.datetime(testtime)))
 #print(testtime.total_seconds())
-file.plot.scatter(x='Number_of_sequences_cleaned',y='Processing_Time')
 
-plt.savefig("Output.pdf",format="pdf",bbox_inches="tight")
+#Generating figure for NumSeqs versus run time
+file.plot.scatter(x="Number of sequences cleaned",y="Runtime (in hours)")
 
+plt.savefig("NumSeqs.pdf",format="pdf",bbox_inches="tight")
 
-sys.exit()
+plt.close()
 
-x_axis = file['Number of sequences cleaned'] 
-y_axis = file['Processing Time (Hours: Minutes: Seconds)'] 
-plt.figure(figsize=(10,10))
-plt.style.use('seaborn')
-plt.scatter(x,y,marker="*",s=100,edgecolors="black",c="yellow")
-plt.title("Processing Time Compared to Number of Sequences Cleaned")
-plt.xlabel("Number of Sequences Cleaned") 
-plt.ylabel("Processing Time (Hours:Minutes:Seconds)") 
-plt.show()
+#Generating figure for Memory versus run time
+file.plot.scatter(x="Memory (MB)",y="Runtime (in hours)")
+
+plt.savefig("Memory.pdf",format="pdf",bbox_inches="tight")
+
+plt.close()
+
+#Generating figure for Starting File Size versus run time
+x_data ="Starting File Size (MB)"
+y_data="Runtime (in hours)"
+file.plot.scatter(x=x_data,y=y_data)
+
+plt.savefig("StartingFileSize.pdf",format="pdf",bbox_inches="tight")
+
+plt.close()
